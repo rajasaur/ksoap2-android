@@ -231,7 +231,7 @@ public class SoapSerializationEnvelopeTest extends TestCase {
     public void testWritingBody_WithNullParameter() throws Exception {
         soapObject.addProperty(PARAMETER_NAME, null);
         writeBodyWithSoapObject(soapObject);
-        assertEquals(BODY_XML_STRING + ">" + "<" + PARAMETER_NAME + " n2:null=\"true\" xmlns:n2=\""
+        assertEquals(BODY_XML_STRING + ">" + "<" + PARAMETER_NAME + " n2:nil=\"true\" xmlns:n2=\""
                 + envelope.xsi + "\" />" + END_XML_FUNCTION_STRING, new String(outputStream.toByteArray()));
     }
 

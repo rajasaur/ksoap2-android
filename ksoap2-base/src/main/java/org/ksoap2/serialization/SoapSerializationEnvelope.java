@@ -670,7 +670,8 @@ public class SoapSerializationEnvelope extends SoapEnvelope
 	{
 		if (obj == null)
 		{
-			writer.attribute(xsi, version >= VER12 ? NIL_LABEL : NULL_LABEL, "true");
+            // Irrespective of SOAP Version, change this to be the nul attribute. Axis 1.4 has issues understanding it otherwise
+			writer.attribute(xsi, NIL_LABEL, "true");
 			return;
 		}
 		Object[] qName = getInfo(null, obj);

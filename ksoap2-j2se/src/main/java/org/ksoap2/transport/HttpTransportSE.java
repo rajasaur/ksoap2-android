@@ -191,8 +191,12 @@ public class HttpTransportSE extends Transport {
 	        is.close();
 	        is = new ByteArrayInputStream(buf);
 	    }
-   
-	    parseResponse(envelope, is);
+
+        if (isMultipart()) {
+            parseMultipartResponse(envelope, is);
+        } else {
+	        parseResponse(envelope, is);
+        }
 	    return retHeaders;
 	}
 
